@@ -483,6 +483,86 @@
   }
   .chart-btn:hover:not(.active) { color:var(--text); }
 
+
+  /* ── INSIGHT CARD ────────────────────────── */
+  .insight-card {
+    background: linear-gradient(135deg, #003063 0%, #004a96 100%);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .insight-card::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+  }
+  .insight-card::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; right: 40px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.03);
+  }
+  .insight-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .insight-icon {
+    width: 28px; height: 28px;
+    background: rgba(255,255,255,.12);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .insight-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.6);
+  }
+  .insight-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .insight-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: rgba(255,255,255,.9);
+    line-height: 1.45;
+  }
+  .insight-bullet {
+    width: 18px; height: 18px;
+    background: #E8650A;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 800;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .insight-item strong { color: #fff; font-weight: 700; }
+  .insight-date {
+    font-size: 10px;
+    font-family: var(--mono);
+    color: rgba(255,255,255,.35);
+    margin-top: 14px;
+    text-align: right;
+  }
+
 </style>
 </head>
 <body>
@@ -599,6 +679,29 @@
         </div>
         <div class="kpi-sub">1 juin 11,9 % · 2 juin 10,3 % · 3 juin 13,7 %</div>
       </div>
+    </div>
+
+
+    <div class="insight-card">
+      <div class="insight-header">
+        <div class="insight-icon">💡</div>
+        <span class="insight-title">À savoir</span>
+      </div>
+      <ul class="insight-list">
+        <li class="insight-item">
+          <span class="insight-bullet">1</span>
+          <span>Le <strong>crosspod a plus que doublé vs mai</strong> — +103% en volume, la part passe de 7,0% à 12,7%. Tendance tirée par <strong>Au Coeur du Crime</strong> (61% de crosspod) et <strong>Le Journal Europe 1</strong> qui explose à 47% sur J3.</span>
+        </li>
+        <li class="insight-item">
+          <span class="insight-bullet">2</span>
+          <span>Les téléchargements globaux progressent <strong>+13% vs mai</strong>, mais <strong>Hondelatte</strong> représente à lui seul ~43% du total, quasi exclusivement porté par l'audiomerge (~80%). Le trafic organique reste très fragmenté.</span>
+        </li>
+        <li class="insight-item">
+          <span class="insight-bullet">3</span>
+          <span>Plusieurs podcasts sont <strong>en recul vs mai</strong> à périmètre égal : <strong>Au Cœur de l'Histoire</strong> (-30%), <strong>Les Voyages d'Amélia</strong> (-33%), <strong>Libre antenne week-end</strong> (-25%). Signaux à surveiller sur la durée du mois.</span>
+        </li>
+      </ul>
+      <div class="insight-date">Analyse au 04 juin 2026 · J1–J3</div>
     </div>
 
     <div class="section-head">
