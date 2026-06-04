@@ -240,6 +240,54 @@ td { padding: 10px 14px; vertical-align: middle; }
 .pct-mid  { color: var(--amber); font-weight: 600; }
 .pct-high { color: var(--red); font-weight: 700; }
 
+
+/* ── CALENDAR ──────────────────────────────── */
+.cal-section { margin-top: 28px; }
+.cal-grid-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cal-month-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.cal-month-title span { display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex-shrink:0; }
+.dow-header { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; margin-bottom: 4px; }
+.dow-label { font-size: 9px; font-weight: 600; text-align: center; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; padding: 2px 0; }
+.cal-days-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+.cal-cell {
+  border-radius: 6px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 5px 2px; border: 0.5px solid transparent;
+  transition: transform .12s; cursor: default;
+}
+.cal-cell.has-data { cursor: pointer; }
+.cal-cell.has-data:hover { transform: scale(1.1); z-index: 10; }
+.cal-cell.active-day { outline: 2px solid var(--orange); outline-offset: 1px; }
+.cal-cell.empty-cell { visibility: hidden; }
+.cal-cell.future-cell { background: var(--border) !important; opacity: .3; }
+.cal-cell-num { font-size: 11px; font-weight: 600; line-height: 1; }
+.cal-cell-dow { font-size: 8px; font-weight: 400; opacity: .75; margin-top: 2px; text-transform: uppercase; letter-spacing: .02em; }
+.cal-legend { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 11px; color: var(--muted); font-family: var(--mono); }
+.cal-legend-ramp { display: flex; gap: 2px; }
+.cal-legend-ramp span { width: 14px; height: 7px; border-radius: 2px; }
+.cal-tooltip {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 16px; margin-top: 14px;
+  min-height: 80px; box-shadow: var(--shadow);
+}
+.cal-tt-label { font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.cal-tt-badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 600; }
+.cal-tt-badge.same  { background: rgba(29,158,117,.15); color: #1D9E75; }
+.cal-tt-badge.diff  { background: rgba(216,90,48,.12);  color: #D85A30; }
+.cal-tt-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cal-tt-item { background: var(--bg); border-radius: 8px; padding: 10px 12px; }
+.cal-tt-item-label { font-size: 10px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 5px; text-transform: uppercase; letter-spacing: .04em; }
+.cal-tt-item-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+.cal-tt-item-val  { font-size: 18px; font-weight: 700; font-family: var(--mono); color: var(--text); }
+.cal-tt-item-dow  { font-size: 10px; font-family: var(--mono); color: var(--muted); margin-top: 2px; }
+.cal-tt-item-delta { font-size: 11px; font-weight: 700; font-family: var(--mono); margin-top: 3px; }
+.cal-tt-empty { font-size: 12px; color: var(--muted); }
+@media (max-width:700px) {
+  .cal-grid-wrap { grid-template-columns: 1fr; }
+  .cal-cell-num { font-size: 10px; }
+  .cal-cell-dow { font-size: 7px; }
+}
+
 /* ── CHART BUTTONS ─────────────────────────── */
 .chart-btn {
   font-size: 11px; font-weight: 600; padding: 5px 13px;
@@ -466,10 +514,28 @@ footer { padding: 18px 40px; font-size: 11px; font-family: var(--mono); color: v
       </div>
     </div>
     <canvas id="trendChart" height="260" style="width:100%;display:block;"></canvas>
+
+  <!-- ── CALENDRIER ── -->
+  <div class="cal-section">
+    <div class="section-head">
+      <span class="section-title">Calendrier comparatif</span>
+      <span class="section-period">Mai vs Juin — même numéro de jour</span>
+    </div>
+    <div class="cal-grid-wrap">
+      <div id="cal-mai"></div>
+      <div id="cal-juin"></div>
+    </div>
+    <div class="cal-legend">
+      <span>Volume :</span>
+      <div class="cal-legend-ramp" id="cal-legend-ramp"></div>
+      <span>faible → fort</span>
+    </div>
+    <div class="cal-tooltip" id="cal-tooltip">
+      <span class="cal-tt-empty">Survolez un jour pour comparer mai et juin</span>
+    </div>
   </div>
 
 </div>
-
 <!-- ══ PANEL PLATEFORMES ═══════════════════ -->
 <div id="panel-plateformes" class="panel">
 
@@ -561,7 +627,7 @@ function switchTab(name, btn) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('panel-'+name).classList.add('active');
-  if (name === 'comparatif') setTimeout(drawChart, 0);
+  if (name === 'comparatif') setTimeout(() => { drawChart(); buildCalendars(); }, 0);
 }
 
 // ════════════════════════════════════════════
@@ -956,6 +1022,107 @@ if (sessionStorage.getItem('crosspod_auth')==='1') {
 // ════════════════════════════════════════════
 // INIT
 // ════════════════════════════════════════════
+
+// ── CALENDRIER ───────────────────────────────
+function buildCalendars() {
+  const DOW = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+  const WE  = [0,6];
+  const maiColors  = ['#d4f0e5','#8dd5b5','#4dba8a','#1D9E75','#0d6e50'];
+  const juinColors = ['#cce3f5','#8bbfe8','#4e9bd4','#0070C0','#004f8a'];
+  const maiDark    = ['#0d2e1e','#0d3d28','#0d5236','#0d6e50','#1D9E75'];
+  const juinDark   = ['#0a1e30','#0a2a43','#0a3a5c','#004f8a','#0070C0'];
+
+  const maiVals  = D.kpi.daily_mai.map(d => d.dl);
+  const juinVals = D.kpi.daily_juin.map(d => d.dl);
+  const globalMax = Math.max(...maiVals, ...juinVals);
+
+  function getColor(val, light, dark) {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const cols = isDark ? dark : light;
+    const r = val / globalMax;
+    return r < .2 ? cols[0] : r < .4 ? cols[1] : r < .6 ? cols[2] : r < .8 ? cols[3] : cols[4];
+  }
+  function textCol(bg) {
+    const h = bg.replace('#','');
+    const lum = (0.299*parseInt(h.slice(0,2),16)+0.587*parseInt(h.slice(2,4),16)+0.114*parseInt(h.slice(4,6),16))/255;
+    return lum > 0.45 ? '#0d4a30' : '#ffffff';
+  }
+
+  function buildMonth(id, year, month, data, lColors, dColors, accent, totalDays, label) {
+    const cont = document.getElementById(id);
+    const firstDow = new Date(year, month-1, 1).getDay();
+    cont.innerHTML = `
+      <div class="cal-month-title"><span style="background:${accent}"></span>${label}</div>
+      <div class="dow-header">${DOW.map((d,i)=>`<div class="dow-label">${d}</div>`).join('')}</div>
+      <div class="cal-days-grid" id="grid-${id}"></div>`;
+    const grid = document.getElementById('grid-'+id);
+
+    for (let e=0;e<firstDow;e++) {
+      const b=document.createElement('div'); b.className='cal-cell empty-cell'; grid.appendChild(b);
+    }
+    for (let d=1;d<=totalDays;d++) {
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      const dow = new Date(year,month-1,d).getDay();
+      const val = data[d-1] !== undefined ? data[d-1].dl || data[d-1] : undefined;
+      if (val !== undefined) {
+        cell.classList.add('has-data');
+        const bg = getColor(val, lColors, dColors);
+        cell.style.background = bg;
+        const tc = textCol(bg);
+        cell.innerHTML = `<span class="cal-cell-num" style="color:${tc}">${d}</span><span class="cal-cell-dow" style="color:${tc}">${DOW[dow]}</span>`;
+        cell.addEventListener('mouseenter', () => {
+          document.querySelectorAll('.cal-cell.active-day').forEach(c=>c.classList.remove('active-day'));
+          cell.classList.add('active-day');
+          showCalTooltip(d);
+        });
+      } else {
+        cell.classList.add('future-cell');
+        cell.innerHTML = `<span class="cal-cell-num" style="color:var(--muted)">${d}</span><span class="cal-cell-dow" style="color:var(--muted)">${DOW[dow]}</span>`;
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  window.showCalTooltip = function(day) {
+    const DOW = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+    const maiEntry  = D.kpi.daily_mai.find(d=>d.d===day);
+    const juinEntry = D.kpi.daily_juin.find(d=>d.d===day);
+    const maiDowStr  = DOW[new Date(2026,4,day).getDay()];
+    const juinDowStr = DOW[new Date(2026,5,day).getDay()];
+    const sameDay = maiDowStr === juinDowStr;
+    const delta = (maiEntry && juinEntry) ? ((juinEntry.dl - maiEntry.dl) / maiEntry.dl * 100) : null;
+    const dc = delta !== null ? (delta>=0?'var(--green)':'var(--red)') : '';
+    const ds = delta !== null ? `${delta>=0?'+':''}${delta.toFixed(1)}% vs mai` : '';
+    const badge = sameDay
+      ? `<span class="cal-tt-badge same">Même jour ✓</span>`
+      : `<span class="cal-tt-badge diff">${maiDowStr} → ${juinDowStr}</span>`;
+    document.getElementById('cal-tooltip').innerHTML = `
+      <div class="cal-tt-label">Jour ${day} ${badge}</div>
+      <div class="cal-tt-rows">
+        <div class="cal-tt-item">
+          <div class="cal-tt-item-label"><span class="cal-tt-item-dot" style="background:#1D9E75"></span>Mai 2026</div>
+          <div class="cal-tt-item-val">${maiEntry ? fmt(maiEntry.dl) : '—'}</div>
+          <div class="cal-tt-item-dow">${maiDowStr} ${day} mai</div>
+        </div>
+        <div class="cal-tt-item">
+          <div class="cal-tt-item-label"><span class="cal-tt-item-dot" style="background:#0070C0"></span>Juin 2026</div>
+          <div class="cal-tt-item-val">${juinEntry ? fmt(juinEntry.dl) : '—'}</div>
+          <div class="cal-tt-item-dow">${juinDowStr} ${day} juin</div>
+          ${delta!==null?`<div class="cal-tt-item-delta" style="color:${dc}">${ds}</div>`:''}
+        </div>
+      </div>`;
+  };
+
+  buildMonth('cal-mai',  2026, 5, D.kpi.daily_mai,  maiColors,  maiDark,  '#1D9E75', 31, 'Mai 2026');
+  buildMonth('cal-juin', 2026, 6, D.kpi.daily_juin, juinColors, juinDark, '#0070C0', 30, 'Juin 2026');
+
+  const ramp = document.getElementById('cal-legend-ramp');
+  if (ramp) ['#d4f0e5','#8dd5b5','#4dba8a','#1D9E75','#0d6e50'].forEach(c=>{
+    const s=document.createElement('span'); s.style.background=c; ramp.appendChild(s);
+  });
+}
+
 function init() {
   renderKPI();
   renderCmp();
@@ -963,6 +1130,7 @@ function init() {
   renderInsights();
   renderTop20();
   renderApps();
+  buildCalendars();
   window.addEventListener('resize', ()=>{ if(document.getElementById('panel-comparatif').classList.contains('active')) drawChart(); });
 }
 
