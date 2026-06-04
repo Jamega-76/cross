@@ -496,6 +496,7 @@
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('juin', this)">Juin 2026</button>
   <button class="tab-btn" onclick="switchTab('comparatif', this)">Comparatif Mai / Juin</button>
+  <button class="tab-btn" onclick="switchTab('plateformes', this)">Plateformes</button>
 </div>
 
 <main>
@@ -632,6 +633,32 @@
     </div>
 
   </div><!-- /panel-comparatif -->
+
+
+  <!-- ══ PANEL PLATEFORMES ══ -->
+  <div id="panel-plateformes" class="panel">
+
+    <div class="section-head" style="margin-top:4px">
+      <span class="section-title">Top 10 plateformes</span>
+      <span class="section-period">1 + 2 + 3 juin · vs mai même période</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="c" style="width:32px">#</th>
+            <th>Plateforme</th>
+            <th class="r">Téléchargements juin</th>
+            <th class="r">Mai (J1-J3)</th>
+            <th class="r">Évolution</th>
+          </tr>
+        </thead>
+        <tbody id="apps-body"></tbody>
+      </table>
+    </div>
+
+  </div><!-- /panel-plateformes -->
 
 </main>
 
@@ -931,6 +958,55 @@ if (sessionStorage.getItem('crosspod_auth') === '1') {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app-content').style.display = 'block';
 }
+
+
+// ── DONNÉES PLATEFORMES ──────────────────────────
+const top10apps = [
+  { name: "Apple Podcasts",   juin: 427121, mai: 401640 },
+  { name: "App Europe 1",     juin: 156294, mai: 112642 },
+  { name: "Spotify",          juin: 147634, mai: 127957 },
+  { name: "Deezer",           juin: 108514, mai:  89127 },
+  { name: "Web - europe1.fr", juin:  43434, mai:  46059 },
+  { name: "PodcastAddict",    juin:  40206, mai:  34205 },
+  { name: "CastBox",          juin:  39169, mai:  33770 },
+  { name: "App Europe 2",     juin:  31209, mai:  16912 },
+  { name: "AmazonMusic",      juin:  26495, mai:  24473 },
+  { name: "Podbean",          juin:  23901, mai:  23549 },
+];
+
+function renderApps() {
+  const tbody = document.getElementById('apps-body');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  const maxJuin = top10apps[0].juin;
+  top10apps.forEach((d, i) => {
+    const delta = d.mai > 0 ? (d.juin - d.mai) / d.mai * 100 : null;
+    const deltaColor = delta === null ? 'var(--muted)' : delta >= 0 ? '#1D9E75' : '#D85A30';
+    const deltaStr = delta === null ? '—' : `${delta >= 0 ? '+' : ''}${delta.toFixed(1)} %`;
+    const barW = Math.round(d.juin / maxJuin * 100);
+    const rowBg = i % 2 === 0 ? 'var(--card)' : 'var(--blue-l)';
+    const tr = document.createElement('tr');
+    tr.style.background = rowBg;
+    tr.innerHTML = `
+      <td class="td-rank" style="text-align:center">${i+1}</td>
+      <td style="font-weight:600;color:var(--navy);font-size:13px;padding:10px 16px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="flex:1">
+            <div>${d.name}</div>
+            <div style="margin-top:5px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;">
+              <div style="height:4px;width:${barW}%;background:var(--blue);border-radius:2px;"></div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="td-num big" style="text-align:right">${fmt(d.juin)}</td>
+      <td class="td-num" style="text-align:right">${fmt(d.mai)}</td>
+      <td style="text-align:right;padding:10px 16px;font-family:var(--mono);font-size:13px;font-weight:700;color:${deltaColor};white-space:nowrap;">${deltaStr}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+renderApps();
 
 </script>
 </div><!-- /app-content -->
