@@ -1,20 +1,20 @@
 {
   "meta": {
-    "updated": "12 juin 2026",
-    "jours": 11,
+    "updated": "15 juin 2026",
+    "jours": 14,
     "total_jours_mois": 30,
-    "periode_label": "1 au 11 juin",
-    "periode_mai_label": "1-11 mai"
+    "periode_label": "1 au 14 juin",
+    "periode_mai_label": "1-14 mai"
   },
   "kpi": {
-    "dl_juin": 4222891,
-    "dl_mai": 4253949,
-    "cp_juin": 627102,
-    "cp_mai": 439754,
-    "pct_juin": 14.9,
-    "pct_mai": 10.3,
-    "avg_dl": 383899,
-    "avg_cp": 57009,
+    "dl_juin": 5256505,
+    "dl_mai": 5488592,
+    "cp_juin": 762136,
+    "cp_mai": 588483,
+    "pct_juin": 14.5,
+    "pct_mai": 10.7,
+    "avg_dl": 375464,
+    "avg_cp": 54438,
     "daily_juin": [
       {
         "d": 1,
@@ -81,6 +81,24 @@
         "dl": 394595,
         "cp": 73499,
         "pct": 18.6
+      },
+      {
+        "d": 12,
+        "dl": 387450,
+        "cp": 57595,
+        "pct": 14.9
+      },
+      {
+        "d": 13,
+        "dl": 312181,
+        "cp": 38179,
+        "pct": 12.2
+      },
+      {
+        "d": 14,
+        "dl": 333983,
+        "cp": 39260,
+        "pct": 11.8
       }
     ],
     "daily_mai": [
@@ -274,38 +292,38 @@
   },
   "insights": [
     {
-      "text": "J11 atteint <strong>18,6% de crosspod</strong> — nouveau record du mois, 3e jour consécutif au-dessus de 18%. La part mensuelle grimpe à <strong>14,9%</strong> vs 10,3% mai (+4,5 pts). Le crosspod est désormais <strong>+42,6% vs mai</strong>."
+      "text": "<strong>2ème semaine complète</strong> — la part crosspod se stabilise à <strong>14,5%</strong> cumulée. Le weekend J13-J14 (sam/dim) retombe à 12%, confirmant le pattern : semaine forte (~15-18%), weekend plus faible (~12%). Tendance structurelle installée."
     },
     {
-      "text": "<strong>L'édito éco</strong> confirme sa nouvelle config avec 14 019 DL sur J11 (41,4% crosspod cumulé) — 2e jour consécutif au-dessus de 11k, contre ~3k habituellement. <strong>Au Cœur de l'Histoire</strong> signe sa meilleure journée (54 724 DL), recul vs mai réduit à -21,9%."
+      "text": "<strong>La Grande interview E1-CNews</strong> devient le 3e émetteur avec 60 672 DL générés en crosspod — elle dépasse désormais Les Récits de Bellemare. <strong>L'édito éco</strong> reste élevé sur J12 (6 575 DL) avant de redescendre J13-J14, la config semble intermittente."
     },
     {
-      "text": "<strong>Le Journal Europe 1</strong> reste sur une dynamique forte : 31 754 DL sur J11, 62,4% crosspod cumulé. Les téléchargements globaux sont quasi stables vs mai (<strong>-0,7%</strong>) malgré une part crosspod qui continue de grimper."
+      "text": "<strong>Les dossiers d'Interpol</strong> entre dans le top 20 sur J14 avec 8 404 DL — pic inhabituel à surveiller. <strong>Au Cœur de l'Histoire</strong> se stabilise autour de 40-45k/jour, le recul vs mai s'est réduit à <strong>-21,6%</strong>."
     }
   ],
   "alerts": [
     {
-      "type": "up",
-      "text": "J11 : 18,6% crosspod — nouveau record, 3e jour consécutif >18%"
+      "type": "warning",
+      "text": "J13-J14 (weekend) : retour à 12% crosspod — pattern semaine/weekend confirmé"
     },
     {
       "type": "up",
-      "text": "L'édito éco : 14 019 DL sur J11, config crosspod confirmée 2 jours de suite"
+      "text": "La Grande interview E1-CNews : 3e émetteur avec 60 672 DL crosspod générés"
     },
     {
       "type": "up",
-      "text": "Au Cœur de l'Histoire : 54 724 DL, meilleure journée du mois, recul réduit à -21,9%"
+      "text": "Les dossiers d'Interpol : 8 404 DL sur J14 — pic à surveiller"
     }
   ],
   "top20": [
     {
       "name": "Hondelatte Raconte",
-      "dl": 1696151,
-      "cp": 6019,
-      "am": 1370310,
-      "own": 319797,
-      "mai": 1856791,
-      "avgMai": 168799,
+      "dl": 2119413,
+      "cp": 15582,
+      "am": 1704137,
+      "own": 399661,
+      "mai": 2378493,
+      "avgMai": 169892,
       "days": [
         168922,
         172621,
@@ -317,18 +335,21 @@
         154291,
         168941,
         155205,
-        140115
+        140115,
+        162885,
+        126983,
+        133394
       ],
       "img": "https://static.audiomeans.fr/img/podcast/a2a56c23-e2e0-4c73-98e4-27d77450e285.jpg"
     },
     {
       "name": "Au Coeur du Crime",
-      "dl": 445821,
-      "cp": 228797,
+      "dl": 567646,
+      "cp": 289464,
       "am": 0,
-      "own": 217024,
-      "mai": 286452,
-      "avgMai": 26041,
+      "own": 278182,
+      "mai": 353020,
+      "avgMai": 25215,
       "days": [
         47932,
         44959,
@@ -340,18 +361,21 @@
         29616,
         37027,
         29242,
-        34137
+        34137,
+        38730,
+        41495,
+        41600
       ],
       "img": "https://static.audiomeans.fr/img/podcast/1bbe2565-e86d-4fcd-8d7e-eaf9c46dbb48.jpg"
     },
     {
       "name": "Au Cœur de l'Histoire",
-      "dl": 432355,
-      "cp": 87465,
-      "am": 290685,
-      "own": 54064,
-      "mai": 554038,
-      "avgMai": 50367,
+      "dl": 559133,
+      "cp": 99213,
+      "am": 389887,
+      "own": 69850,
+      "mai": 713361,
+      "avgMai": 50954,
       "days": [
         32907,
         29540,
@@ -363,18 +387,21 @@
         52348,
         48262,
         48866,
-        54724
+        54724,
+        42227,
+        38446,
+        46105
       ],
       "img": "https://static.audiomeans.fr/img/podcast/0efae155-54bc-4192-9689-ca13b00339e8.jpg"
     },
     {
       "name": "Le journal — Europe 1",
-      "dl": 227968,
-      "cp": 142276,
-      "am": 84144,
-      "own": 1548,
-      "mai": 185476,
-      "avgMai": 16861,
+      "dl": 282276,
+      "cp": 178304,
+      "am": 101722,
+      "own": 2250,
+      "mai": 261278,
+      "avgMai": 18662,
       "days": [
         10817,
         10111,
@@ -386,18 +413,21 @@
         17439,
         16599,
         37674,
-        31754
+        31754,
+        27575,
+        12811,
+        13922
       ],
       "img": "https://static.audiomeans.fr/img/podcast/ec8ad2a3-ccc2-43d7-913e-74b8027bfeb1.jpg"
     },
     {
       "name": "Cauet sur Europe 2",
-      "dl": 186773,
-      "cp": 80,
-      "am": 3392,
-      "own": 183301,
-      "mai": 158984,
-      "avgMai": 14453,
+      "dl": 222195,
+      "cp": 91,
+      "am": 4015,
+      "own": 218089,
+      "mai": 209847,
+      "avgMai": 14989,
       "days": [
         16895,
         18748,
@@ -409,18 +439,21 @@
         16427,
         19656,
         19151,
-        20227
+        20227,
+        17662,
+        10127,
+        7633
       ],
       "img": "https://static.audiomeans.fr/img/podcast/afcd3cd7-512e-4d64-8fcb-3744523b1ded.jpg"
     },
     {
       "name": "Les Récits extraord. de Pierre Bellemare",
-      "dl": 150963,
-      "cp": 18148,
-      "am": 90066,
-      "own": 42749,
-      "mai": 181132,
-      "avgMai": 16466,
+      "dl": 181001,
+      "cp": 18314,
+      "am": 108488,
+      "own": 54199,
+      "mai": 224256,
+      "avgMai": 16018,
       "days": [
         18550,
         14228,
@@ -432,18 +465,21 @@
         16611,
         10856,
         8908,
-        14953
+        14953,
+        10426,
+        9977,
+        9635
       ],
       "img": "https://static.audiomeans.fr/img/podcast/eb18f911-e417-4b6a-986f-b4a61402c843.jpg"
     },
     {
       "name": "Pascal Praud et vous",
-      "dl": 102808,
-      "cp": 18375,
-      "am": 47524,
-      "own": 36909,
-      "mai": 77221,
-      "avgMai": 7020,
+      "dl": 120020,
+      "cp": 18562,
+      "am": 55996,
+      "own": 45462,
+      "mai": 105857,
+      "avgMai": 7561,
       "days": [
         13326,
         14186,
@@ -455,18 +491,21 @@
         5621,
         10357,
         8923,
-        7683
+        7683,
+        8259,
+        5601,
+        3352
       ],
       "img": "https://static.audiomeans.fr/img/podcast/d18bed44-6c78-4ec8-9a28-ffe51e4a5345.jpg"
     },
     {
       "name": "Destins Extraordinaires",
-      "dl": 76934,
-      "cp": 63197,
-      "am": 343,
-      "own": 13394,
-      "mai": 30999,
-      "avgMai": 2818,
+      "dl": 81783,
+      "cp": 64348,
+      "am": 401,
+      "own": 17034,
+      "mai": 33644,
+      "avgMai": 2403,
       "days": [
         776,
         1279,
@@ -478,18 +517,21 @@
         38418,
         20421,
         7137,
-        3301
+        3301,
+        2056,
+        1505,
+        1288
       ],
       "img": null
     },
     {
       "name": "Libre antenne",
-      "dl": 46975,
-      "cp": 48,
+      "dl": 59530,
+      "cp": 59,
       "am": 0,
-      "own": 46927,
-      "mai": 42974,
-      "avgMai": 3906,
+      "own": 59471,
+      "mai": 58369,
+      "avgMai": 4169,
       "days": [
         2489,
         4256,
@@ -501,18 +543,21 @@
         2485,
         4598,
         5207,
-        5729
+        5729,
+        6266,
+        3230,
+        3059
       ],
       "img": "https://static.audiomeans.fr/img/podcast/bb66ee2a-50ef-4b36-9b4d-63fdaaa766b6.jpg"
     },
     {
       "name": "L'édito éco",
-      "dl": 45741,
-      "cp": 18939,
-      "am": 914,
-      "own": 25888,
-      "mai": 23153,
-      "avgMai": 2104,
+      "dl": 57456,
+      "cp": 28404,
+      "am": 956,
+      "own": 28096,
+      "mai": 33890,
+      "avgMai": 2420,
       "days": [
         3195,
         1296,
@@ -524,18 +569,21 @@
         3220,
         3389,
         11590,
-        14019
+        14019,
+        6575,
+        2533,
+        2607
       ],
       "img": "https://static.audiomeans.fr/img/podcast/78fccf96-8671-44b7-82a1-087a07b089a0.jpg"
     },
     {
       "name": "Libre antenne week-end",
-      "dl": 42357,
-      "cp": 140,
+      "dl": 55795,
+      "cp": 154,
       "am": 0,
-      "own": 42217,
-      "mai": 50691,
-      "avgMai": 4608,
+      "own": 55641,
+      "mai": 57709,
+      "avgMai": 4122,
       "days": [
         6674,
         3406,
@@ -547,18 +595,21 @@
         6785,
         3185,
         1828,
-        1756
+        1756,
+        2328,
+        4893,
+        6217
       ],
       "img": "https://static.audiomeans.fr/img/podcast/bb66ee2a-50ef-4b36-9b4d-63fdaaa766b6.jpg"
     },
     {
       "name": "Et si on en parlait",
-      "dl": 38052,
-      "cp": 8,
-      "am": 1760,
-      "own": 36284,
-      "mai": 40067,
-      "avgMai": 3642,
+      "dl": 46790,
+      "cp": 9,
+      "am": 2141,
+      "own": 44640,
+      "mai": 52234,
+      "avgMai": 3731,
       "days": [
         3161,
         3548,
@@ -570,18 +621,21 @@
         3370,
         3957,
         3809,
-        3838
+        3838,
+        3645,
+        2664,
+        2429
       ],
       "img": "https://static.audiomeans.fr/img/podcast/28c17135-be4b-42d6-9ea4-ecbe63dd8c81.jpg"
     },
     {
       "name": "La Grande interview E1 - CNews",
-      "dl": 33325,
-      "cp": 12,
-      "am": 27391,
-      "own": 5922,
-      "mai": 22736,
-      "avgMai": 2066,
+      "dl": 38650,
+      "cp": 13,
+      "am": 31833,
+      "own": 6804,
+      "mai": 32905,
+      "avgMai": 2350,
       "days": [
         4487,
         4675,
@@ -593,41 +647,21 @@
         3436,
         3795,
         3503,
-        4123
+        4123,
+        3215,
+        1291,
+        819
       ],
       "img": "https://static.audiomeans.fr/img/podcast/3605b25a-6cbd-4f31-85d7-706f140657b9.jpg"
     },
     {
-      "name": "L'édito international",
-      "dl": 29691,
-      "cp": 0,
-      "am": 0,
-      "own": 29691,
-      "mai": 24033,
-      "avgMai": 2184,
-      "days": [
-        3436,
-        4018,
-        3660,
-        3685,
-        1418,
-        621,
-        405,
-        3505,
-        3655,
-        1755,
-        3533
-      ],
-      "img": "https://static.audiomeans.fr/img/podcast/19e6ad1e-d4a5-45fa-8812-d35dc040d96c.jpg"
-    },
-    {
       "name": "Les Voyages d'Amélia au cœur de l'Histoire",
-      "dl": 28600,
-      "cp": 12,
+      "dl": 36853,
+      "cp": 14,
       "am": 0,
-      "own": 28588,
-      "mai": 34993,
-      "avgMai": 3181,
+      "own": 36839,
+      "mai": 44327,
+      "avgMai": 3166,
       "days": [
         2343,
         2317,
@@ -639,41 +673,21 @@
         2644,
         2378,
         3246,
-        2227
+        2227,
+        1914,
+        2472,
+        3867
       ],
       "img": null
     },
     {
-      "name": "L'édito politique d'Europe 1",
-      "dl": 28540,
-      "cp": 11,
-      "am": 19690,
-      "own": 8839,
-      "mai": 23507,
-      "avgMai": 2137,
-      "days": [
-        2742,
-        3081,
-        2979,
-        3095,
-        3243,
-        835,
-        409,
-        2932,
-        3182,
-        2989,
-        3053
-      ],
-      "img": "https://static.audiomeans.fr/img/podcast/00d87c01-fd76-43a2-8ad7-72ce11a2cde4.jpg"
-    },
-    {
       "name": "Les assassins sont parmi nous",
-      "dl": 28245,
-      "cp": 30,
-      "am": 19795,
-      "own": 8420,
-      "mai": 21947,
-      "avgMai": 1995,
+      "dl": 32853,
+      "cp": 37,
+      "am": 23090,
+      "own": 9726,
+      "mai": 28285,
+      "avgMai": 2020,
       "days": [
         1275,
         987,
@@ -685,18 +699,21 @@
         4584,
         3859,
         3390,
-        2922
+        2922,
+        1968,
+        1348,
+        1292
       ],
       "img": null
     },
     {
       "name": "Culture médias",
-      "dl": 27871,
-      "cp": 6,
-      "am": 13981,
-      "own": 13884,
-      "mai": 23425,
-      "avgMai": 2129,
+      "dl": 32823,
+      "cp": 7,
+      "am": 16059,
+      "own": 16757,
+      "mai": 31269,
+      "avgMai": 2233,
       "days": [
         2707,
         2246,
@@ -708,18 +725,73 @@
         2504,
         2946,
         2943,
-        2835
+        2835,
+        2705,
+        1390,
+        857
       ],
       "img": "https://static.audiomeans.fr/img/podcast/eefb1fff-b462-466e-8e55-6b0584a31a0f.jpg"
     },
     {
+      "name": "L'édito politique d'Europe 1",
+      "dl": 32704,
+      "cp": 13,
+      "am": 22581,
+      "own": 10110,
+      "mai": 32831,
+      "avgMai": 2345,
+      "days": [
+        2742,
+        3081,
+        2979,
+        3095,
+        3243,
+        835,
+        409,
+        2932,
+        3182,
+        2989,
+        3053,
+        3077,
+        671,
+        416
+      ],
+      "img": "https://static.audiomeans.fr/img/podcast/00d87c01-fd76-43a2-8ad7-72ce11a2cde4.jpg"
+    },
+    {
+      "name": "L'édito international",
+      "dl": 31901,
+      "cp": 0,
+      "am": 0,
+      "own": 31901,
+      "mai": 35486,
+      "avgMai": 2534,
+      "days": [
+        3436,
+        4018,
+        3660,
+        3685,
+        1418,
+        621,
+        405,
+        3505,
+        3655,
+        1755,
+        3533,
+        1357,
+        461,
+        392
+      ],
+      "img": "https://static.audiomeans.fr/img/podcast/19e6ad1e-d4a5-45fa-8812-d35dc040d96c.jpg"
+    },
+    {
       "name": "C'est arrivé cette semaine - F. Taddeï",
-      "dl": 24831,
-      "cp": 10902,
-      "am": 10142,
-      "own": 3787,
-      "mai": 15971,
-      "avgMai": 1451,
+      "dl": 30299,
+      "cp": 10915,
+      "am": 13141,
+      "own": 6243,
+      "mai": 18652,
+      "avgMai": 1332,
       "days": [
         4947,
         1746,
@@ -731,84 +803,90 @@
         855,
         543,
         318,
-        322
+        322,
+        287,
+        3215,
+        1966
       ],
       "img": null
     },
     {
-      "name": "L'Heure des Pros",
-      "dl": 22469,
-      "cp": 0,
-      "am": 9785,
-      "own": 12684,
-      "mai": 17073,
-      "avgMai": 1552,
+      "name": "Les dossiers d'Interpol",
+      "dl": 29322,
+      "cp": 56,
+      "am": 23661,
+      "own": 5605,
+      "mai": 40605,
+      "avgMai": 2900,
       "days": [
-        2395,
-        2366,
-        2562,
-        2508,
-        2338,
-        684,
-        342,
-        2247,
-        2367,
-        2387,
-        2273
+        3803,
+        2516,
+        2099,
+        1554,
+        1599,
+        1604,
+        1499,
+        1114,
+        979,
+        906,
+        827,
+        1112,
+        1306,
+        8404
       ],
-      "img": "https://static.audiomeans.fr/img/podcast/5e7364ea-0d1c-4179-8861-0c6c059d0286.jpg"
+      "img": null
     }
   ],
   "apps": [
     {
       "name": "Apple Podcasts",
-      "juin": 1549948,
-      "mai": 1649064
+      "juin": 1923568,
+      "mai": 2120206
     },
     {
       "name": "App Europe 1",
-      "juin": 562432,
-      "mai": 422090
+      "juin": 712859,
+      "mai": 539382
     },
     {
       "name": "Spotify",
-      "juin": 516502,
-      "mai": 531549
+      "juin": 636120,
+      "mai": 682982
     },
     {
       "name": "Deezer",
-      "juin": 376344,
-      "mai": 383517
+      "juin": 466339,
+      "mai": 498658
     },
     {
       "name": "Web - europe1.fr",
-      "juin": 170735,
-      "mai": 170810
+      "juin": 220886,
+      "mai": 215853
     },
     {
       "name": "CastBox",
-      "juin": 143282,
-      "mai": 140100
+      "juin": 179405,
+      "mai": 181009
     },
     {
       "name": "PodcastAddict",
-      "juin": 140863,
-      "mai": 144696
+      "juin": 175639,
+      "mai": 189968
     },
     {
       "name": "App Europe 2",
-      "juin": 106719,
-      "mai": 89377
+      "juin": 127919,
+      "mai": 117259
     },
     {
       "name": "AmazonMusic",
-      "juin": 93708,
-      "mai": 96949
+      "juin": 115823,
+      "mai": 123884
     },
     {
       "name": "Podbean",
-      "juin": 89444,
-      "mai": 101197
+      "juin": 111897,
+      "mai": 128362
     }
   ]
 }
